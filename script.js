@@ -35,24 +35,33 @@ function addItem(){
 //add an event listner to button to listen click event and execute addItem function
 $mainButton.addEventListener('click', addItem);
 
-//add an event listener to input field to listen keydown event and execute a fuction to check is it enter key then execute click event of main button
+//add item if press enter in input field
 $mainInput.addEventListener('keydown', function(event){
+    //check pressed key is Enter key
     if(event.key === 'Enter'){
+
+        //prevent default event behaviour
         event.preventDefault();
+
+        //activate main button click evetn
         $mainButton.click();
     }
 });
 
 // function for delete items
 function deleteItem(event){
-    console.log(event.target.classList[1]);
+    //check if click on icon by class name
     if(event.target.classList[1] === "fa-trash"){
+        //Declare parent li elemtn of selected button
         let item = event.target.parentElement;
+        //add slideout class to list for animation
         item.classList.add('slideOut');
-        item.addEventListener("transitionend",() =>{
+        //add an event listener to check transition end and remove item
+        item.addEventListener("transitionend",() => {
             item.remove();
         });
     }
 }
 
+//add a click event listener to ul 
 $mainList.addEventListener('click',deleteItem);
