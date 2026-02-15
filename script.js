@@ -42,3 +42,14 @@ $mainInput.addEventListener('keydown', function(event){
         $mainButton.click();
     }
 });
+
+// function for delete items
+function deleteItem(event){
+    console.log(event.target.classList[1]);
+    if(event.target.classList[1] === "fa-trash"){
+        let item = event.target.parentElement;
+        item.remove();
+    }
+}
+
+$mainList.addEventListener('click',deleteItem);
