@@ -76,6 +76,7 @@ i {
     padding: 4px 8px;
 }
 
+/* animation for adding items */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -85,4 +86,11 @@ i {
         opacity: 1;
         transform: rotateX(0deg) translateY(0px);
     }
+}
+
+/* animation for deleting items */
+.slideOut{
+    transform: rotateX(60deg) translateY(-10px);
+    opacity: 0;
+    transition: 1s;
 }

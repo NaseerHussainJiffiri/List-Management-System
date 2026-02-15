@@ -48,7 +48,10 @@ function deleteItem(event){
     console.log(event.target.classList[1]);
     if(event.target.classList[1] === "fa-trash"){
         let item = event.target.parentElement;
-        item.remove();
+        item.classList.add('slideOut');
+        item.addEventListener("transitionend",() =>{
+            item.remove();
+        });
     }
 }
 
