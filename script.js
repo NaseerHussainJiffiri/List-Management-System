@@ -24,6 +24,11 @@ function addItem(){
     trashIcon.classList.add("fa", "fa-trash");
     newLi.appendChild(trashIcon);
 
+    //create Edit button
+    let editButton = document.createElement('i');
+    editButton.classList.add("fa", "fa-edit");
+    newLi.appendChild(editButton);
+
     //append list to main list
     $mainList.appendChild(newLi);
 
@@ -49,7 +54,7 @@ $mainInput.addEventListener('keydown', function(event){
 });
 
 // function for delete items
-function deleteItem(event){
+function editOrDeleteItem(event){
     //check if click on icon by class name
     if(event.target.classList[1] === "fa-trash"){
         //Declare parent li elemtn of selected button
@@ -61,7 +66,20 @@ function deleteItem(event){
             item.remove();
         });
     }
+    //check if click on icon by class name
+    if(event.target.classList[1] === "fa-edit"){
+        //Declare parent li elemtn of selected button
+        let item = event.target.parentElement;
+        //add slideout class to list for animation
+
+        let valueForEdit = item.innerText;
+
+        item.innerText = prompt("Edit", valueForEdit);
+        
+    }
+    
+    
 }
 
-//add a click event listener to ul 
-$mainList.addEventListener('click',deleteItem);
+//add a click event listener to ul for del
+$mainList.addEventListener('click',editOrDeleteItem);

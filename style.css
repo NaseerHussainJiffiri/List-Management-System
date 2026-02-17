@@ -76,6 +76,14 @@ i {
     padding: 4px 8px;
 }
 
+.fa-trash {
+    margin-left: auto;
+}
+
+.fa-edit {
+    margin-left: 10px;
+}
+
 /* animation for adding items */
 @keyframes slideIn {
     from {
